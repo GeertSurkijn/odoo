@@ -424,10 +424,10 @@ class StockMove(models.Model):
                     if propagated_date_field:
                         current_date = datetime.strptime(move.date_expected, DEFAULT_SERVER_DATETIME_FORMAT)
                         new_date = datetime.strptime(vals.get(propagated_date_field), DEFAULT_SERVER_DATETIME_FORMAT)
-                        delta = relativedelta.relativedelta(new_date, current_date)
-                        if abs(delta.days) >= move.company_id.propagation_minimum_delta:
+                        delta_days = (new_date - current_date).total_seconds() / 86400
+                        if abs(delta_days) >= move.company_id.propagation_minimum_delta:
                             old_move_date = datetime.strptime(move.move_dest_ids[0].date_expected, DEFAULT_SERVER_DATETIME_FORMAT)
-                            new_move_date = (old_move_date + relativedelta.relativedelta(days=delta.days or 0)).strftime(DEFAULT_SERVER_DATETIME_FORMAT)
+                            new_move_date = (old_move_date + relativedelta.relativedelta(days=delta_days or 0)).strftime(DEFAULT_SERVER_DATETIME_FORMAT)
                             propagated_changes_dict['date_expected'] = new_move_date
                     #For pushed moves as well as for pulled moves, propagate by recursive call of write().
                     #Note that, for pulled moves we intentionally don't propagate on the procurement.
@@ -895,7 +895,7 @@ class StockMove(models.Model):
         assigned_moves = self.env['stock.move']
         partially_available_moves = self.env['stock.move']
         for move in self.filtered(lambda m: m.state in ['confirmed', 'waiting', 'partially_available']):
-            if move.location_id.usage in ('supplier', 'inventory', 'production', 'customer')\
+            if move.location_id.should_bypass_reservation()\
                     or move.product_id.type == 'consu':
                 # create the move line(s) but do not impact quants
                 if move.product_id.tracking == 'serial' and (move.picking_type_id.use_create_lots or move.picking_type_id.use_existing_lots):
@@ -918,11 +918,15 @@ class StockMove(models.Model):
                 if not move.move_orig_ids:
                     if move.procure_method == 'make_to_order':
                         continue
+                    # If we don't need any quantity, consider the move assigned.
+                    need = move.product_qty - move.reserved_availability
+                    if float_is_zero(need, precision_rounding=move.product_id.uom_id.rounding):
+                        assigned_moves |= move
+                        continue
                     # Reserve new quants and create move lines accordingly.
                     available_quantity = self.env['stock.quant']._get_available_quantity(move.product_id, move.location_id)
                     if available_quantity <= 0:
                         continue
-                    need = move.product_qty - move.reserved_availability
                     taken_quantity = move._update_reserved_quantity(need, available_quantity, move.location_id, strict=False)
                     if float_is_zero(taken_quantity, precision_rounding=move.product_id.uom_id.rounding):
                         continue

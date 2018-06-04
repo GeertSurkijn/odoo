@@ -323,6 +323,7 @@ class PurchaseOrder(models.Model):
 
     @api.multi
     def print_quotation(self):
+        self.write({'state': "sent"})
         return self.env.ref('purchase.report_purchase_quotation').report_action(self)
 
     @api.multi
@@ -1022,10 +1023,10 @@ class ProcurementRule(models.Model):
             'partner_id': partner.id,
             'picking_type_id': self.picking_type_id.id,
             'company_id': values['company_id'].id,
-            'currency_id': partner.property_purchase_currency_id.id or self.env.user.company_id.currency_id.id,
+            'currency_id': partner.with_context(force_company=values['company_id'].id).property_purchase_currency_id.id or self.env.user.company_id.currency_id.id,
             'dest_address_id': values.get('partner_dest_id', False) and values['partner_dest_id'].id,
             'origin': origin,
-            'payment_term_id': partner.property_supplier_payment_term_id.id,
+            'payment_term_id': partner.with_context(force_company=values['company_id'].id).property_supplier_payment_term_id.id,
             'date_order': purchase_date.strftime(DEFAULT_SERVER_DATETIME_FORMAT),
             'fiscal_position_id': fpos,
             'group_id': group
