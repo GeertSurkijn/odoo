@@ -1053,7 +1053,7 @@ msgstr "Naujausia"
 #. module: purchase
 #: selection:purchase.order,invoice_status:0
 msgid "No Bill to Receive"
-msgstr "Nėra gaunamos sąskaitos"
+msgstr "Gautinų sąskaitų nėra"
 
 #. module: purchase
 #: selection:product.template,purchase_line_warn:0
@@ -1369,7 +1369,7 @@ msgstr "Pirkimo užsakymo mokestinė aplinka "
 #: model:ir.ui.view,arch_db:purchase.purchase_order_form
 #: model:ir.ui.view,arch_db:purchase.purchase_order_line_form2
 msgid "Purchase Order Line"
-msgstr "Pardavimo užsakymo eilutė "
+msgstr "Pirkimo užsakymo eilutė "
 
 #. module: purchase
 #: model:ir.ui.view,arch_db:purchase.purchase_order_form
@@ -1771,7 +1771,7 @@ msgid ""
 "                purchase process: prices, procurement logistics, accounting data,\n"
 "                available vendors, etc."
 msgstr ""
-"Produkto formoje yra detali informacija pardavimo proceso\n"
+"Produkto formoje yra detali informacija pirkimo proceso\n"
 "pagerinimui: kainos, įsigijimo logistika, buhalteriniai duomenys,\n"
 "galimi pardavėjai ir kt."
 
@@ -1782,7 +1782,7 @@ msgid ""
 "            purchase process: prices, procurement logistics, accounting data,\n"
 "            available vendors, etc."
 msgstr ""
-"Produkto formoje yra detali informacija pardavimo proceso\n"
+"Produkto formoje yra detali informacija pirkimo proceso\n"
 "pagerinimui: kainos, įsigijimo logistika, buhalteriniai duomenys,\n"
 "galimi pardavėjai ir kt."
 
@@ -2087,7 +2087,7 @@ msgstr "Tūris"
 #: model:ir.ui.view,arch_db:purchase.view_purchase_order_filter
 #: selection:purchase.order,invoice_status:0
 msgid "Waiting Bills"
-msgstr "Laukiančios sąskaitos"
+msgstr "Laukiama sąskaitų"
 
 #. module: purchase
 #: model:ir.model,name:purchase.model_stock_warehouse
