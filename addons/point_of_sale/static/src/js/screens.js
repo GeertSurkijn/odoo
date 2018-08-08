@@ -394,7 +394,9 @@ var NumpadWidget = PosBaseWidget.extend({
         this.$el.find('.mode-button').click(_.bind(this.clickChangeMode, this));
     },
     applyAccessRights: function() {
-        var has_price_control_rights = !this.pos.config.restrict_price_control || this.pos.get_cashier().role == 'manager';
+        var has_price_control_rights = !this.pos.config.restrict_price_control
+            || (this.pos.changed.cashier && this.pos.changed.cashier.role == 'manager')
+            || (!this.pos.changed.cashier && this.pos.get_cashier().role == 'manager');
         this.$el.find('.mode-button[data-mode="price"]')
             .toggleClass('disabled-mode', !has_price_control_rights)
             .prop('disabled', !has_price_control_rights);
@@ -1281,7 +1283,8 @@ var ClientListScreenWidget = ScreenWidget.extend({
             })
             .then(function(partner_id){
                 self.saved_client_details(partner_id);
-            },function(type,err){
+            },function(err,ev){
+                ev.preventDefault();
                 var error_body = _t('Your Internet connection is probably down.');
                 if (err.data) {
                     var except = err.data;
@@ -1371,6 +1374,9 @@ var ClientListScreenWidget = ScreenWidget.extend({
     reload_partners: function(){
         var self = this;
         return this.pos.load_new_partners().then(function(){
+            // partners may have changed in the backend
+            self.partner_cache = new DomCache();
+
             self.render_list(self.pos.db.get_partners_sorted(1000));
             
             // update the currently assigned client if it has been changed in db.
