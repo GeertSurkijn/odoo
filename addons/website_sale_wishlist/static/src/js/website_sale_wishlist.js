@@ -174,6 +174,6 @@ var ProductWishlist = Widget.extend({
     }
 });
 
-return ProductWishlist;
+return new ProductWishlist;
 
 });
