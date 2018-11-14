@@ -118,11 +118,11 @@ class account_register_payments(models.TransientModel):
         total = 0
         for inv in invoice_ids:
             if inv.currency_id == payment_currency:
-                total += inv.residual_signed
+                total += MAP_INVOICE_TYPE_PAYMENT_SIGN[inv.type] * inv.residual_signed
             else:
                 amount_residual = inv.company_currency_id.with_context(date=self.payment_date).compute(
                     inv.residual_company_signed, payment_currency)
-                total += amount_residual
+                total += MAP_INVOICE_TYPE_PAYMENT_SIGN[inv.type] * amount_residual
         return total
 
     @api.onchange('journal_id')
@@ -570,7 +570,22 @@ class account_payment(models.Model):
             total_residual_company_signed = sum(invoice.residual_company_signed for invoice in self.invoice_ids)
             total_payment_company_signed = self.currency_id.with_context(date=self.payment_date).compute(self.amount, self.company_id.currency_id)
             # amout_wo must be positive for out_invoice and in_refund and negative for in_invoice and out_refund in standard use case
-            if self.invoice_ids[0].type in ['in_invoice', 'out_refund']:
+            #               |   total_payment_company_signed   |    total_residual_company_signed    |    amount_wo
+            #----------------------------------------------------------------------------------------------------------------------
+            # in_invoice    |   positive                       |    positive                         |    negative
+            #----------------------------------------------------------------------------------------------------------------------
+            # in_refund     |   positive                       |    negative                         |    positive
+            #----------------------------------------------------------------------------------------------------------------------
+            # out_invoice   |   positive                       |    positive                         |    positive
+            #----------------------------------------------------------------------------------------------------------------------
+            # out_refund    |   positive                       |    negative                         |    negative
+            #----------------------------------------------------------------------------------------------------------------------
+            # DO NOT FORWARD-PORT
+            if self.invoice_ids[0].type == 'in_invoice':
+                amount_wo = total_payment_company_signed - total_residual_company_signed
+            elif self.invoice_ids[0].type == 'in_refund':
+                amount_wo = - total_payment_company_signed - total_residual_company_signed
+            elif self.invoice_ids[0].type == 'out_refund':
                 amount_wo = total_payment_company_signed + total_residual_company_signed
             else:
                 amount_wo = total_residual_company_signed - total_payment_company_signed
