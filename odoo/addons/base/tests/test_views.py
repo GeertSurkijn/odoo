@@ -866,7 +866,7 @@ class TestViews(ViewCase):
         # implemeted elsewhere...
         modifiers_tests()
 
-    @mute_logger('odoo.addons.base.ir.ir_ui_view')
+    @mute_logger('odoo.addons.base.ir.ir_ui_view', 'odoo.models')
     def test_invalid_field(self):
         with self.assertRaises(ValidationError):
             self.View.create({
@@ -880,7 +880,7 @@ class TestViews(ViewCase):
                 """,
             })
 
-    @mute_logger('odoo.addons.base.ir.ir_ui_view')
+    @mute_logger('odoo.addons.base.ir.ir_ui_view', 'odoo.models')
     def test_invalid_subfield(self):
         with self.assertRaises(ValidationError):
             self.View.create({
@@ -899,7 +899,7 @@ class TestViews(ViewCase):
                 """,
             })
 
-    @mute_logger('odoo.addons.base.ir.ir_ui_view')
+    @mute_logger('odoo.addons.base.ir.ir_ui_view', 'odoo.models')
     def test_context_in_view(self):
         arch = """
             <form string="View">
@@ -919,7 +919,7 @@ class TestViews(ViewCase):
                 'arch': arch % '',
             })
 
-    @mute_logger('odoo.addons.base.ir.ir_ui_view')
+    @mute_logger('odoo.addons.base.ir.ir_ui_view', 'odoo.models')
     def test_context_in_subview(self):
         arch = """
             <form string="View">
@@ -951,7 +951,7 @@ class TestViews(ViewCase):
                 'arch': arch % ('<field name="model"/>', ''),
             })
 
-    @mute_logger('odoo.addons.base.ir.ir_ui_view')
+    @mute_logger('odoo.addons.base.ir.ir_ui_view', 'odoo.models')
     def test_context_in_subview_with_parent(self):
         arch = """
             <form string="View">
@@ -982,7 +982,7 @@ class TestViews(ViewCase):
                 'arch': arch % ('', '<field name="model"/>'),
             })
 
-    @mute_logger('odoo.addons.base.ir.ir_ui_view')
+    @mute_logger('odoo.addons.base.ir.ir_ui_view', 'odoo.models')
     def test_context_in_subsubview_with_parent(self):
         arch = """
             <form string="View">
@@ -1024,7 +1024,7 @@ class TestViews(ViewCase):
                 'arch': arch % ('', '', '<field name="model"/>'),
             })
 
-    @mute_logger('odoo.addons.base.ir.ir_ui_view')
+    @mute_logger('odoo.addons.base.ir.ir_ui_view', 'odoo.models')
     def test_domain_in_view(self):
         arch = """
             <form string="View">
@@ -1044,7 +1044,7 @@ class TestViews(ViewCase):
                 'arch': arch % '',
             })
 
-    @mute_logger('odoo.addons.base.ir.ir_ui_view')
+    @mute_logger('odoo.addons.base.ir.ir_ui_view', 'odoo.models')
     def test_domain_in_subview(self):
         arch = """
             <form string="View">
@@ -1075,7 +1075,7 @@ class TestViews(ViewCase):
                 'arch': arch % ('<field name="model"/>', ''),
             })
 
-    @mute_logger('odoo.addons.base.ir.ir_ui_view')
+    @mute_logger('odoo.addons.base.ir.ir_ui_view', 'odoo.models')
     def test_domain_in_subview_with_parent(self):
         arch = """
             <form string="View">
@@ -1106,7 +1106,7 @@ class TestViews(ViewCase):
                 'arch': arch % ('', '<field name="model"/>'),
             })
 
-    @mute_logger('odoo.addons.base.ir.ir_ui_view')
+    @mute_logger('odoo.addons.base.ir.ir_ui_view', 'odoo.models')
     def test_domain_on_field_in_view(self):
         field = self.env['ir.ui.view']._fields['inherit_id']
         self.patch(field, 'domain', "[('model', '=', model)]")
@@ -1129,7 +1129,7 @@ class TestViews(ViewCase):
                 'arch': arch % '',
             })
 
-    @mute_logger('odoo.addons.base.ir.ir_ui_view')
+    @mute_logger('odoo.addons.base.ir.ir_ui_view', 'odoo.models')
     def test_domain_on_field_in_subview(self):
         field = self.env['ir.ui.view']._fields['inherit_id']
         self.patch(field, 'domain', "[('model', '=', model)]")
@@ -1163,7 +1163,7 @@ class TestViews(ViewCase):
                 'arch': arch % ('<field name="model"/>', ''),
             })
 
-    @mute_logger('odoo.addons.base.ir.ir_ui_view')
+    @mute_logger('odoo.addons.base.ir.ir_ui_view', 'odoo.models')
     def test_domain_on_field_in_subview_with_parent(self):
         field = self.env['ir.ui.view']._fields['inherit_id']
         self.patch(field, 'domain', "[('model', '=', parent.model)]")
@@ -1197,7 +1197,7 @@ class TestViews(ViewCase):
                 'arch': arch % ('', '<field name="model"/>'),
             })
 
-    @mute_logger('odoo.addons.base.ir.ir_ui_view')
+    @mute_logger('odoo.addons.base.ir.ir_ui_view', 'odoo.models')
     def test_domain_on_field_in_noneditable_subview(self):
         field = self.env['ir.ui.view']._fields['inherit_id']
         self.patch(field, 'domain', "[('model', '=', model)]")
@@ -1225,7 +1225,7 @@ class TestViews(ViewCase):
                 'arch': arch % ' editable="bottom"',
             })
 
-    @mute_logger('odoo.addons.base.ir.ir_ui_view')
+    @mute_logger('odoo.addons.base.ir.ir_ui_view', 'odoo.models')
     def test_domain_on_readonly_field_in_view(self):
         field = self.env['ir.ui.view']._fields['inherit_id']
         self.patch(field, 'domain', "[('model', '=', model)]")
@@ -1255,7 +1255,7 @@ class TestViews(ViewCase):
             'arch': arch,
         })
 
-    @mute_logger('odoo.addons.base.ir.ir_ui_view')
+    @mute_logger('odoo.addons.base.ir.ir_ui_view', 'odoo.models')
     def test_domain_on_readonly_field_in_subview(self):
         field = self.env['ir.ui.view']._fields['inherit_id']
         self.patch(field, 'domain', "[('model', '=', model)]")
@@ -1283,7 +1283,7 @@ class TestViews(ViewCase):
                 'arch': arch % '',
             })
 
-    @mute_logger('odoo.addons.base.ir.ir_ui_view')
+    @mute_logger('odoo.addons.base.ir.ir_ui_view', 'odoo.models')
     def test_attrs_field(self):
         arch = """
             <form string="View">
@@ -1304,7 +1304,7 @@ class TestViews(ViewCase):
                 'arch': arch % '',
             })
 
-    @mute_logger('odoo.addons.base.ir.ir_ui_view')
+    @mute_logger('odoo.addons.base.ir.ir_ui_view', 'odoo.models')
     def test_attrs_subfield(self):
         arch = """
             <form string="View">
@@ -1336,7 +1336,7 @@ class TestViews(ViewCase):
                 'arch': arch % ('<field name="model"/>', ''),
             })
 
-    @mute_logger('odoo.addons.base.ir.ir_ui_view')
+    @mute_logger('odoo.addons.base.ir.ir_ui_view', 'odoo.models')
     def test_attrs_subfield_with_parent(self):
         arch = """
             <form string="View">
@@ -1392,6 +1392,12 @@ class ViewModeField(ViewCase):
         })
         self.assertEqual(view2.mode, 'extension')
 
+        view2.write({'inherit_id': None})
+        self.assertEqual(view2.mode, 'primary')
+
+        view2.write({'inherit_id': view.id})
+        self.assertEqual(view2.mode, 'extension')
+
     @mute_logger('odoo.sql_db')
     def testModeExplicit(self):
         view = self.View.create({
@@ -1404,6 +1410,7 @@ class ViewModeField(ViewCase):
             'arch': '<qweb/>'
         })
         self.assertEqual(view.mode, 'primary')
+        self.assertEqual(view2.mode, 'primary')
 
         with self.assertRaises(IntegrityError):
             self.View.create({
@@ -1454,6 +1461,27 @@ class ViewModeField(ViewCase):
         })
 
         view.write({'mode': 'primary'})
+
+    def testChangeInheritOfPrimary(self):
+        """
+        A primary view with an inherit_id must remain primary when changing the inherit_id
+        """
+        base1 = self.View.create({
+            'inherit_id': None,
+            'arch': '<qweb/>',
+        })
+        base2 = self.View.create({
+            'inherit_id': None,
+            'arch': '<qweb/>',
+        })
+        view = self.View.create({
+            'mode': 'primary',
+            'inherit_id': base1.id,
+            'arch': '<qweb/>',
+        })
+        self.assertEqual(view.mode, 'primary')
+        view.write({'inherit_id': base2.id})
+        self.assertEqual(view.mode, 'primary')
 
 
 class TestDefaultView(ViewCase):
