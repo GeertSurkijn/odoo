@@ -4,6 +4,9 @@
 # 
 # Translators:
 # Alagappan Karthikeyan <me@karthik.sg>, 2019
+# prassanna john paul augustin <prasaugus@gmail.com>, 2019
+# Bagavathikumar Ramakrishnan <bagavathikumar@gmail.com>, 2019
+# Abul Hassan M I <miabulhassan@gmail.com>, 2019
 # 
 msgid ""
 msgstr ""
@@ -11,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-20 09:53+0000\n"
 "PO-Revision-Date: 2017-09-20 10:14+0000\n"
-"Last-Translator: Alagappan Karthikeyan <me@karthik.sg>, 2019\n"
+"Last-Translator: Abul Hassan M I <miabulhassan@gmail.com>, 2019\n"
 "Language-Team: Tamil (https://www.transifex.com/odoo/teams/41243/ta/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,7 +37,7 @@ msgstr "செயலில்"
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line_amount
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_line_form
 msgid "Amount"
-msgstr ""
+msgstr "தொகை"
 
 #. module: analytic
 #: model:ir.model,name:analytic.model_account_analytic_account
@@ -49,13 +52,13 @@ msgstr "பகுப்பாய்வு கணக்கு"
 #. module: analytic
 #: model:res.groups,name:analytic.group_analytic_accounting
 msgid "Analytic Accounting"
-msgstr ""
+msgstr "பகுப்பாய்வு கணக்கியல்"
 
 #. module: analytic
 #: model:ir.actions.act_window,name:analytic.action_account_analytic_account_form
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_list
 msgid "Analytic Accounts"
-msgstr ""
+msgstr "பகுப்பாய்வுக் கணக்குகள்"
 
 #. module: analytic
 #: model:ir.actions.act_window,name:analytic.account_analytic_tag_action
@@ -75,17 +78,17 @@ msgstr "பகுப்பாய்வு உள்ளீடுகள்"
 #. module: analytic
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_line_form
 msgid "Analytic Entry"
-msgstr ""
+msgstr "பகுப்பாய்வு நுழைவு"
 
 #. module: analytic
 #: model:ir.model,name:analytic.model_account_analytic_line
 msgid "Analytic Line"
-msgstr ""
+msgstr "பகுப்பாய்வு வரி"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account_line_ids
 msgid "Analytic Lines"
-msgstr ""
+msgstr "பகுப்பாய்வு கோடுகள்"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_tag_name
@@ -100,12 +103,12 @@ msgstr "பகுப்பாய்வு குறிச்சொற்கள�
 #. module: analytic
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_search
 msgid "Archived"
-msgstr ""
+msgstr "காப்பகப்படுத்தியவை"
 
 #. module: analytic
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_search
 msgid "Associated Partner"
-msgstr ""
+msgstr "இணைக்கப்பட்ட பங்குதாரர்"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account_balance
@@ -115,12 +118,12 @@ msgstr "இருப்பு"
 #. module: analytic
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_kanban
 msgid "Balance:"
-msgstr ""
+msgstr "இருப்பு:"
 
 #. module: analytic
 #: model:ir.actions.act_window,name:analytic.action_analytic_account_form
 msgid "Chart of Analytic Accounts"
-msgstr ""
+msgstr "பகுப்பாய்வுக் கணக்குகளின் விளக்கப்படம்"
 
 #. module: analytic
 #: model:ir.actions.act_window,help:analytic.account_analytic_tag_action
@@ -141,17 +144,17 @@ msgstr "வண்ண குறியீட்டு"
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account_company_id
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line_company_id
 msgid "Company"
-msgstr ""
+msgstr "நிறுவனம்"
 
 #. module: analytic
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_form
 msgid "Cost/Revenue"
-msgstr ""
+msgstr "காஸ்ட் / வருவாய்"
 
 #. module: analytic
 #: model:ir.actions.act_window,name:analytic.account_analytic_line_action
 msgid "Costs & Revenues"
-msgstr ""
+msgstr "செலவுகள் & வருவாய்கள்"
 
 #. module: analytic
 #: model:ir.actions.act_window,help:analytic.account_analytic_line_action
@@ -160,20 +163,22 @@ msgid ""
 "Costs will be created automatically when you register supplier\n"
 "                invoices, expenses or timesheets."
 msgstr ""
+"நீங்கள் வழங்குபவர் பதிவு செய்யும் போது செலவுகள் தானாகவே உருவாக்கப்படும்\n"
+"                 பொருள், செலவுகள் அல்லது நேர அட்டவணைகள்."
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account_create_uid
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line_create_uid
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_tag_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "உருவாக்கியவர்"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account_create_date
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line_create_date
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_tag_create_date
 msgid "Created on"
-msgstr ""
+msgstr "உருவாக்கப்பட்ட தேதி"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account_credit
@@ -183,7 +188,7 @@ msgstr "கடன்"
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account_currency_id
 msgid "Currency"
-msgstr ""
+msgstr "நாணயம்"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account_partner_id
@@ -193,7 +198,7 @@ msgstr "வாடிக்கையாளர்"
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line_date
 msgid "Date"
-msgstr ""
+msgstr "தேதி"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account_debit
@@ -203,14 +208,14 @@ msgstr "டெபிட்"
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line_name
 msgid "Description"
-msgstr ""
+msgstr "விளக்கம்"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account_display_name
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line_display_name
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_tag_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "காட்சி பெயர்"
 
 #. module: analytic
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_search
@@ -223,7 +228,7 @@ msgstr "மூலம் குழு ..."
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line_id
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_tag_id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: analytic
 #: model:ir.model.fields,help:analytic.field_account_analytic_account_active
@@ -231,6 +236,7 @@ msgid ""
 "If the active field is set to False, it will allow you to hide the account "
 "without removing it."
 msgstr ""
+"செயலில் உள்ள புலம் தவறானது எனில், அது அகற்றாமல் கணக்கை மறைக்க அனுமதிக்கும்."
 
 #. module: analytic
 #: model:ir.actions.act_window,help:analytic.account_analytic_line_action
@@ -240,27 +246,30 @@ msgid ""
 "                analytic accounts. You can track costs and revenues to analyse\n"
 "                your margins easily."
 msgstr ""
+"Odoo இல், விற்பனை ஆணைகள் மற்றும் திட்டங்கள் பயன்படுத்தி செயல்படுத்தப்படுகின்றன\n"
+"                 பகுப்பாய்வு கணக்குகள். பகுப்பாய்வு செய்ய நீங்கள் செலவுகளையும் வருவாயையும் கண்காணிக்க முடியும்\n"
+"                 எளிதாக உங்கள் விளிம்புகள்."
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account___last_update
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line___last_update
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_tag___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "கடைசியாக திருத்திய"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account_write_uid
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line_write_uid
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_tag_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "கடைசியாக புதுப்பிக்கப்பட்டவர்"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account_write_date
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line_write_date
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_tag_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "கடைசியாக புதுப்பிக்கப்பட்டது"
 
 #. module: analytic
 #: model:ir.actions.act_window,help:analytic.account_analytic_line_action
@@ -275,13 +284,13 @@ msgstr ""
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line_partner_id
 msgid "Partner"
-msgstr ""
+msgstr "கூட்டாளி"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line_unit_amount
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_line_tree
 msgid "Quantity"
-msgstr ""
+msgstr "அளவு"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account_code
@@ -297,22 +306,26 @@ msgid ""
 "                (fixed price invoices), on timesheets (based on the work done) or\n"
 "                on expenses (e.g. reinvoicing of travel costs)."
 msgstr ""
+"நீங்கள் வாடிக்கையாளரை உருவாக்கும்போது வருவாய் தானாகவே உருவாக்கப்படும்\n"
+"                 விலைவிவரங்களும். வாடிக்கையாளர் விவரங்கள் விற்பனை ஆணைகளின் அடிப்படையில் உருவாக்கப்படும்\n"
+"                 (நிலையான விலை விவரப்பட்டியல்), நேர அட்டவணைகளில் (வேலை செய்யும் வேலையை அடிப்படையாகக் கொண்டது) அல்லது\n"
+"                 செலவினங்களில் (எ.கா. பயண செலவினங்களை திரும்பப் பெறுதல்)."
 
 #. module: analytic
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_line_filter
 msgid "Search Analytic Lines"
-msgstr ""
+msgstr "தேடல் ஆய்வியல் கோடுகள்"
 
 #. module: analytic
 #: model:ir.model.fields,help:analytic.field_account_analytic_tag_active
 msgid "Set active to false to hide the Analytic Tag without removing it."
-msgstr ""
+msgstr "அதை அகற்றாமல் அனலிட்டிக் டேக் மறைக்க பொய்யான செயலை அமைக்கவும்."
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account_tag_ids
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line_tag_ids
 msgid "Tags"
-msgstr ""
+msgstr "மேற்கோள்கள்"
 
 #. module: analytic
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_line_filter
@@ -332,9 +345,9 @@ msgstr "மொத்த"
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line_user_id
 msgid "User"
-msgstr ""
+msgstr "பயனர்"
 
 #. module: analytic
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_form
 msgid "e.g. Project XYZ"
-msgstr ""
+msgstr "எ.கா. திட்டம் XYZ"

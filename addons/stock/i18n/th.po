@@ -527,7 +527,7 @@ msgstr "<strong>จำนวน</strong>"
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.report_picking
 msgid "<strong>Scheduled Date</strong>"
-msgstr ""
+msgstr "<strong>วันที่ตามกำหนดการ</strong>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
@@ -1906,17 +1906,17 @@ msgstr "รายละเอียด"
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.view_template_property_form
 msgid "Description for Delivery Orders"
-msgstr ""
+msgstr "รายละเอียดสำหรับใบส่งสินค้า"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.view_template_property_form
 msgid "Description for Internal Transfers"
-msgstr ""
+msgstr "รายละเอียดสำหรับการเคลื่อนย้ายภายใน"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.view_template_property_form
 msgid "Description for Receptions"
-msgstr ""
+msgstr "รายละเอียดสำหรับการรับสินค้า"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_product_product_description_pickingout
@@ -2274,7 +2274,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:stock.field_stock_move_availability
 #, python-format
 msgid "Forecasted Quantity"
-msgstr ""
+msgstr "ปริมาณพยากรณ์"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_move_line_location_id
@@ -7647,3 +7647,9 @@ msgstr ""
 #: model:ir.ui.view,arch_db:stock.view_inventory_form
 msgid "⇒ Set quantities to 0"
 msgstr "⇒ ตั้งปริมาณเป็น 0"
+
+#. module: stock
+#: code:addons/stock/models/stock_move_line.py:223
+#, python-format
+msgid "Changing the product is only allowed in 'Draft' state."
+msgstr ""

@@ -1171,7 +1171,7 @@ msgstr "Veritabanı yönetici sayfasından web sitenize uygulayın."
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_page_arch_db
 msgid "Arch Blob"
-msgstr "Damlayı kavislendir"
+msgstr "Mimari"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_page_arch_fs
@@ -1938,6 +1938,11 @@ msgstr "E-mail adresi"
 #: model:ir.ui.view,arch_db:website.s_comparisons
 msgid "Email support"
 msgstr "Eposta desteği"
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.res_config_settings_view_form
+msgid "Enable billing on your Google Project"
+msgstr ""
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -3848,11 +3853,6 @@ msgid "Show in Top Menu"
 msgstr "Üst Menüde Göster"
 
 #. module: website
-#: model:ir.ui.view,arch_db:website.res_config_settings_view_form
-msgid "Show your address on a map in the"
-msgstr "Haritada adresinizi gösterin"
-
-#. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "Simple and obvious"
 msgstr "Basit ve net "
@@ -4334,6 +4334,11 @@ msgstr ""
 #: model:ir.ui.view,arch_db:website.edit_website_pages
 msgid "Url"
 msgstr "Url"
+
+#. module: website
+#: model:ir.ui.view,arch_db:website.res_config_settings_view_form
+msgid "Use Google Map on your website ("
+msgstr ""
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_faq_collapse
@@ -5128,8 +5133,8 @@ msgstr "ya da Esasını Düzenle"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.res_config_settings_view_form
-msgid "page"
-msgstr "sayfa"
+msgid "page, snippets, ...)"
+msgstr ""
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
